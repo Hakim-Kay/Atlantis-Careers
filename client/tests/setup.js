@@ -1,10 +1,9 @@
-// import cleanup, matchers, expect and afterEach
-import { cleanup } from '@testing-library/vue';
-import {matchers} from '@testing-library/jest-dom/matchers';
-import {expect, afterEach} from 'vitest'; 
+import { cleanup } from '@testing-library/vue'
+import matchers from '@testing-library/jest-dom/matchers'
+import { expect, afterEach } from 'vitest'
 
-expect.extend(matchers);
+expect.extend(matchers)
 
-afterEach(function() {
-  cleanup();
-});
+afterEach(function () {
+  cleanup()
+})
