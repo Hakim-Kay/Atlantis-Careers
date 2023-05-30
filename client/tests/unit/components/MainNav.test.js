@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/vue'
 import MainNav from '@/components/MainNav.vue'
+import userEvent from '@testing-library/user-event'
 
 describe('MainNav', () => {
   it('displays company name', () => {
@@ -20,5 +21,27 @@ describe('MainNav', () => {
       'Students',
       'Jobs'
     ])
+  })
+
+  describe('when user clicks on the sign-in button', () => {
+    it('displays user profile picture', async () => {
+      render(MainNav)
+
+      let profileImage = screen.queryByRole('img', {
+        // regular expression to match the image alt text. 'i' means case insensitive //
+        name: /User profile image/i
+      })
+      expect(profileImage).not.toBeInTheDocument()
+
+      const loginButton = screen.getByRole('button', {
+        name: /Sign in/i
+      })
+      await userEvent.click(loginButton)
+
+      profileImage = screen.getByRole('img', {
+        name: /User profile image/i
+      })
+      expect(profileImage).toBeInTheDocument()
+    })
   })
 })
