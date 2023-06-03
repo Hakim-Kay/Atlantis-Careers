@@ -23,7 +23,7 @@ export default {
   computed: {
     actionClasses() {
       return {
-        [this.action.toLocaleLowerCase()]: true // [learn: true] or [build: true] or [teach: true]
+        [this.action.toLowerCase()]: true // [learn: true] or [build: true] or [teach: true]
       }
     }
   },

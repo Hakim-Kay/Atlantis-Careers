@@ -18,6 +18,8 @@ import TheHeadline from '@/components/TheHeadline.vue'
 
 export default {
   name: 'HeroSection',
-  components: { TheHeadline }
+  components: {
+    TheHeadline
+  }
 }
 </script>
