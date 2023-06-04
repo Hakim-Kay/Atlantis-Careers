@@ -10,7 +10,7 @@
         <div class="col-span-5 col-start-7 self-center justify-self-center">
           <img
             class="h-80 w-80 object-contain"
-            src="assets/Vue.js_Logo_2.svg.png"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/2367px-Vue.js_Logo_2.svg.png"
             alt="Vue.js logo"
           />
         </div>
