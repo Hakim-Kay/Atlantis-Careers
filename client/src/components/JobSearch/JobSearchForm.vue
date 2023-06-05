@@ -5,7 +5,7 @@
     <div class="flex h-full flex-1 flex-nowrap text-base font-light">
       <div class="relative flex h-full flex-1 items-center pr-3">
         <label class="absolute -top-10 left-0">Role</label>
-        <text-input placeholder="Software engineer" />
+        <text-input placeholder="Software engineer" @handle-input="updateRole" />
       </div>
 
       <span
@@ -35,6 +35,11 @@ export default {
     return {
       role: '',
       location: ''
+    }
+  },
+  methods: {
+    updateRole(role) {
+      this.role = role
     }
   }
 }
