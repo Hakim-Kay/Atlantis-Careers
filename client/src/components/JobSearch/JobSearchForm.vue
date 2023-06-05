@@ -5,7 +5,8 @@
     <div class="flex h-full flex-1 flex-nowrap text-base font-light">
       <div class="relative flex h-full flex-1 items-center pr-3">
         <label class="absolute -top-10 left-0">Role</label>
-        <text-input placeholder="Software engineer" @handle-input="updateRole" />
+        <!-- $event is the value emitted from the child component -->
+        <text-input v-model="role" placeholder="Software engineer" />
       </div>
 
       <span
@@ -16,7 +17,7 @@
 
       <div class="relative flex h-full flex-1 items-center pl-3">
         <label class="absolute -top-10 left-0">Where?</label>
-        <text-input placeholder="London" />
+        <text-input v-model="location" placeholder="London" />
       </div>
     </div>
 
@@ -35,11 +36,6 @@ export default {
     return {
       role: '',
       location: ''
-    }
-  },
-  methods: {
-    updateRole(role) {
-      this.role = role
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <input
     type="text"
-    :value="value"
+    :value="modelValue"
     class="w-full text-lg font-normal focus:outline-none"
     @input="handleInput"
   />
@@ -10,15 +10,18 @@
 <script>
 export default {
   name: 'TextInput',
-  data() {
-    return {
-      value: ''
+  props: {
+    modelValue: {
+      type: String,
+      required: true
     }
   },
+  emits: ['update:modelValue'], // this is required to emit the value to the parent component (see below)
   methods: {
+    // emit the value to the parent component
     handleInput($event) {
-      this.value = $event.target.value
-      this.$emit('handleInput', this.value) // emit the value to the parent component
+      this.$emit('update:modelValue', $event.target.value)
+      // update:modelValue is the v-model syntax for custom components (see JobSearchForm.vue)
     }
   }
 }
