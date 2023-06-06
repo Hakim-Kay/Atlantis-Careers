@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/vue'
 
 import userEvent from '@testing-library/user-event'
 
@@ -21,10 +21,30 @@ describe('JobSearchForm', () => {
           }
         }
       })
+      // ------------------ Form Inputs ------------------ //
       const roleInput = screen.getByRole('textbox', {
         name: /role/i
       })
       await userEvent.type(roleInput, 'Vue Developer')
+
+      const locationInput = screen.getByRole('textbox', {
+        name: /where?/i
+      })
+      await userEvent.type(locationInput, 'London')
+
+      const submitButton = screen.getByRole('button', {
+        name: /search/i
+      })
+      await userEvent.click(submitButton)
+
+      expect(push).toHaveBeenCalledWith({
+        name: 'JobResults',
+        query: {
+          role: 'Vue Developer',
+          location: 'London'
+        }
+        // ------------------- Form Inputs ---------------- //
+      })
     })
   })
 })
