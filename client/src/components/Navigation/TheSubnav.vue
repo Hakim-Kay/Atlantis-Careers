@@ -3,7 +3,7 @@
     <div class="flex h-full items-center px-8">
       <div v-if="onJobResultsPage">
         <font-awesome-icon class="mr-3" :icon="['fas', 'search']" />
-        <span class="font-semibold text-brand-green-1">1023</span> <span>jobs matched</span>
+        <span class="text-brand-green-1">1023</span> <span>jobs matched</span>
       </div>
     </div>
   </div>
