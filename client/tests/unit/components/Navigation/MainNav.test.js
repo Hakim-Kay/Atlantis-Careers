@@ -5,8 +5,15 @@ import { RouterLinkStub } from '@vue/test-utils'
 
 describe('MainNav', () => {
   const renderMainNav = () => {
+    const $route = {
+      name: 'Home'
+    }
+
     render(MainNav, {
       global: {
+        mocks: {
+          $route: $route
+        },
         // stubbing out the FontAwesomeIcon component for a lightweight alternative
         stubs: {
           FontAwesomeIcon: true,
