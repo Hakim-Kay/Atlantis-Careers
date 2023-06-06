@@ -1,21 +1,19 @@
 <template>
   <div class="job-results-view">
-    <div class="job-results-view__sidebar">
-      <job-filters-sidebar />
-    </div>
-    <div class="job-results-view__results">
-      <JobResults />
-    </div>
+    <job-filters-sidebar />
+    <job-listings />
   </div>
 </template>
 
 <script>
 import JobFiltersSidebar from '@/components/JobResults/JobFiltersSideBar/JobFiltersSidebar.vue'
+import JobListings from '@/components/JobResults/JobListings.vue'
 
 export default {
   name: 'JobResultsView',
   components: {
-    JobFiltersSidebar
+    JobFiltersSidebar,
+    JobListings
   }
 }
 </script>
