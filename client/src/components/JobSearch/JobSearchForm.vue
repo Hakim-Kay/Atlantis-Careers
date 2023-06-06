@@ -3,7 +3,7 @@
     class="flex h-12 w-full items-center rounded-3xl border border-solid border-brand-gray-3"
     @submit.prevent="searchJobs"
   >
-    <font-awesome-icon :icon="['fas', 'search']" class="ml-4 mr-3" />
+    <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="ml-4 mr-3" />
 
     <div class="flex h-full flex-1 flex-nowrap text-base font-light">
       <div class="relative flex h-full flex-1 items-center pr-3">
