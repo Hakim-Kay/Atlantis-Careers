@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import HeroSection from '../components/JobSearch/HeroSection.vue'
+import HeroSection from '@/components/JobSearch/HeroSection.vue'
 
 export default {
   name: 'HomeView',

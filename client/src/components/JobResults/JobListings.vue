@@ -1,7 +1,6 @@
 <template>
   <main class="flex-auto bg-brand-gray-2 p-8">
     <ol>
-      <job-listing v-for="job in jobs" :key="job.id" :job="job" />
       <job-listing />
       <job-listing />
       <job-listing />
@@ -10,12 +9,30 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 import JobListing from '@/components/JobResults/JobListing.vue'
 
 export default {
   name: 'JobListings',
-  components: {
-    JobListing
+  components: { JobListing },
+  data() {
+    return {
+      jobs: []
+    }
+  },
+
+  // mounted is a lifecycle hook that runs after the component is mounted
+  mounted() {
+    axios
+      .get('http://localhost:3000/jobs')
+      .then((response) => {
+        this.jobs = response.data
+        console.log(response)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 }
 </script>
