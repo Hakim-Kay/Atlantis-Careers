@@ -1,17 +1,19 @@
 import nextElementInList from '@/utils/nextElementInList'
 
 describe('nextElementInList', () => {
-  it('locates and returns the next element in the list', () => {
-    const list = ['a', 'b', 'c']
-    const currentElement = 'b'
-    const nextElement = nextElementInList(list, currentElement)
-    expect(nextElement).toEqual('c')
+  it('locates element in list and returns the next element in list', () => {
+    const list = ['A', 'B', 'C', 'D', 'E']
+    const value = 'C'
+    const result = nextElementInList(list, value)
+    expect(result).toBe('D')
   })
 
-  it('returns the first element in the list if the current element is the last element in the list', () => {
-    const list = ['a', 'b', 'c']
-    const currentElement = 'c'
-    const nextElement = nextElementInList(list, currentElement)
-    expect(nextElement).toEqual('a')
+  describe('when element is at the end of the list', () => {
+    it('locates next element at start of list', () => {
+      const list = ['A', 'B', 'C', 'D', 'E']
+      const value = 'E'
+      const result = nextElementInList(list, value)
+      expect(result).toBe('A')
+    })
   })
 })

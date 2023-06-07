@@ -1,5 +1,4 @@
 <template>
-  <!-- this is the class binding syntax -->
   <button :class="buttonClass">
     {{ text }}
   </button>
@@ -16,7 +15,7 @@ export default {
     type: {
       type: String,
       required: false,
-      default: 'primary', // fallback default value
+      default: 'primary',
       validator(value) {
         return ['primary', 'secondary'].includes(value)
       }
@@ -25,7 +24,6 @@ export default {
   computed: {
     buttonClass() {
       return {
-        // { primary: true } or { secondary: true }
         [this.type]: true
       }
     }

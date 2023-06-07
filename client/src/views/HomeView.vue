@@ -1,12 +1,12 @@
 <template>
-  <hero-section />
+  <the-hero />
 </template>
 
 <script>
-import HeroSection from '@/components/JobSearch/HeroSection.vue'
+import TheHero from "@/components/JobSearch/TheHero.vue";
 
 export default {
-  name: 'HomeView',
-  components: { HeroSection }
-}
+  name: "HomeView",
+  components: { TheHero },
+};
 </script>

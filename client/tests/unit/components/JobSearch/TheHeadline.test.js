@@ -4,12 +4,10 @@ import { render, screen } from '@testing-library/vue'
 import TheHeadline from '@/components/JobSearch/TheHeadline.vue'
 
 describe('TheHeadline', () => {
-  // setup - fake timers
   beforeEach(() => {
     vi.useFakeTimers()
   })
 
-  // cleanup - reset timers
   afterEach(() => {
     vi.useRealTimers()
   })
@@ -17,15 +15,16 @@ describe('TheHeadline', () => {
   it('displays introductory action verb', () => {
     render(TheHeadline)
 
-    const actionVerb = screen.getByRole('heading', {
-      name: /bUild for everyone/i
+    const actionPhrase = screen.getByRole('heading', {
+      name: /build for everyone/i
     })
-    expect(actionVerb).toBeInTheDocument()
+    expect(actionPhrase).toBeInTheDocument()
   })
 
   it('changes action verb at a consistent interval', () => {
-    const mock = vi.fn() // mock function
+    const mock = vi.fn()
     vi.stubGlobal('setInterval', mock)
+
     render(TheHeadline)
 
     expect(mock).toHaveBeenCalled()
@@ -36,11 +35,11 @@ describe('TheHeadline', () => {
     vi.advanceTimersToNextTimer()
 
     await nextTick()
-    const actionVerb = screen.getByRole('heading', {
-      name: /learn for everyone/i
+    const actionPhrase = screen.getByRole('heading', {
+      name: /create for everyone/i
     })
 
-    expect(actionVerb).toBeInTheDocument()
+    expect(actionPhrase).toBeInTheDocument()
   })
 
   it('removes interval when component disappears', () => {
@@ -49,6 +48,7 @@ describe('TheHeadline', () => {
 
     const { unmount } = render(TheHeadline)
     unmount()
+
     expect(clearInterval).toHaveBeenCalled()
     vi.unstubAllGlobals()
   })

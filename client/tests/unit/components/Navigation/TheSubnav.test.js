@@ -7,36 +7,35 @@ describe('TheSubnav', () => {
     render(TheSubnav, {
       global: {
         mocks: {
-          // $route is a mock object that will be passed to the const $route above
           $route: {
             name: routeName
           }
         },
-        // stubbing out the FontAwesomeIcon component for a lightweight alternative
         stubs: {
           FontAwesomeIcon: true
         }
       }
     })
   }
+
   describe('when user is on jobs page', () => {
-    it('should display the job count', () => {
+    it('displays job count', () => {
       const routeName = 'JobResults'
 
       renderTheSubnav(routeName)
 
-      const jobCount = screen.getByText('1023')
+      const jobCount = screen.getByText('1653')
       expect(jobCount).toBeInTheDocument()
     })
   })
 
   describe('when user is not on jobs page', () => {
-    it('should NOT display the job count', () => {
+    it('does NOT display job count', () => {
       const routeName = 'Home'
 
       renderTheSubnav(routeName)
 
-      const jobCount = screen.queryByText('1023')
+      const jobCount = screen.queryByText('1653')
       expect(jobCount).not.toBeInTheDocument()
     })
   })
