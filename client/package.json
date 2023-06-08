@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "vite",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vite build",
     "preview": "vite preview",
     "test:unit": "vitest --environment jsdom --coverage",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
