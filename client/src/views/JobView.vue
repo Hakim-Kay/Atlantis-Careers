@@ -4,25 +4,11 @@
 
 <script>
 export default {
-  name: 'JobView',
+  name: "JobView",
   computed: {
     currentJobId() {
-      return this.$route.params.id
-    }
-  }
-  // data() {
-  //   return {
-  //     job: {}
-  //   }
-  // },
-  // methods: {
-  //   async getJob() {
-  //     const { data } = await this.$axios.get(`/jobs/${this.$route.params.id}`)
-  //     this.job = data
-  //   }
-  // },
-  // created() {
-  //   this.getJob()
-  // }
-}
+      return this.$route.params.id;
+    },
+  },
+};
 </script>

@@ -1,27 +1,25 @@
 import { render, screen } from '@testing-library/vue'
-
 import userEvent from '@testing-library/user-event'
 
 import JobSearchForm from '@/components/JobSearch/JobSearchForm.vue'
 
 describe('JobSearchForm', () => {
   describe('when user submits form', () => {
-    it("directs user to job results page w/ user's search parameters", async () => {
-      // track how many times router.push() has been invoked
+    it("directs user to job results page with user's search parameters", async () => {
       const push = vi.fn()
       const $router = { push }
 
       render(JobSearchForm, {
         global: {
           mocks: {
-            $router: $router
+            $router
           },
           stubs: {
             FontAwesomeIcon: true
           }
         }
       })
-      // ------------------ Form Inputs ------------------ //
+
       const roleInput = screen.getByRole('textbox', {
         name: /role/i
       })
@@ -30,7 +28,7 @@ describe('JobSearchForm', () => {
       const locationInput = screen.getByRole('textbox', {
         name: /where?/i
       })
-      await userEvent.type(locationInput, 'London')
+      await userEvent.type(locationInput, 'Dallas')
 
       const submitButton = screen.getByRole('button', {
         name: /search/i
@@ -39,11 +37,7 @@ describe('JobSearchForm', () => {
 
       expect(push).toHaveBeenCalledWith({
         name: 'JobResults',
-        query: {
-          role: 'Vue Developer',
-          location: 'London'
-        }
-        // ------------------- Form Inputs ---------------- //
+        query: { role: 'Vue Developer', location: 'Dallas' }
       })
     })
   })

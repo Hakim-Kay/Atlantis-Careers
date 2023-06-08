@@ -7,19 +7,18 @@
         </router-link>
 
         <nav class="ml-12 h-full">
-          <ul class="flex h-full items-center">
+          <ul class="flex h-full list-none">
             <li v-for="menuItem in menuItems" :key="menuItem.text" class="ml-9 h-full first:ml-0">
-              <router-link class="flex h-full items-center py-2.5" :to="menuItem.url">
-                {{ menuItem.text }}
-              </router-link>
+              <router-link :to="menuItem.url" class="flex h-full items-center py-2.5">{{
+                menuItem.text
+              }}</router-link>
             </li>
           </ul>
         </nav>
 
         <div class="ml-auto flex h-full items-center">
           <profile-image v-if="isLoggedIn" />
-          <!-- text & primary are (props 👇) -->
-          <action-button v-else text="Sign in" type="primary" @click="loginUser" />
+          <action-button v-else text="Sign in" @click="loginUser" />
         </div>
       </div>
 
@@ -36,9 +35,9 @@ import TheSubnav from '@/components/Navigation/TheSubnav.vue'
 export default {
   name: 'MainNav',
   components: {
-    ActionButton: ActionButton,
-    ProfileImage: ProfileImage,
-    TheSubnav: TheSubnav
+    ActionButton,
+    ProfileImage,
+    TheSubnav
   },
   data() {
     return {
@@ -55,7 +54,10 @@ export default {
   },
   computed: {
     headerHeightClass() {
-      return !this.isLoggedIn ? 'h-16' : 'h-32'
+      return {
+        'h-16': !this.isLoggedIn,
+        'h-32': this.isLoggedIn
+      }
     }
   },
   methods: {

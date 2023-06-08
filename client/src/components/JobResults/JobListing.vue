@@ -1,40 +1,44 @@
 <template>
   <li class="mb-7">
     <router-link
-      to="jobs/results/1"
+      to="/jobs/results/1"
       class="mx-auto block rounded border border-solid border-brand-gray-2 bg-white hover:shadow-gray"
     >
       <div class="mx-8 border-b border-solid border-brand-gray-2 pb-2 pt-5">
-        <h2 class="mb-2 text-2xl">Technical Program Manager, Perception, Augmented Reality</h2>
+        <h2 class="mb-2 text-2xl">
+          Technical Program Manager, Perception, Augmented Reality
+        </h2>
+
         <div class="flex flex-row align-middle">
           <div class="mr-5">
-            <span>Google</span>
+            <span>Bobo</span>
           </div>
+
           <div>
-            <span>Mountain View, CA</span>
+            <span>San Francisco, CA, USA</span>
           </div>
         </div>
       </div>
+
       <div class="px-8 py-4">
-        <div class="">
-          <h3 class="mb-2 mt-1">Qualification:</h3>
+        <div>
+          <h3 class="mb-2 mt-1">Qualifications:</h3>
           <div>
             <ul class="list-disc pl-8">
-              <li>BA/BS degree in Computer Science or equivalent practical experience.</li>
+              <li>Bachelor's degree or equivalent practical experience.</li>
+              <li>5 years of experience in program management.</li>
               <li>
-                Experience in one or more of the following areas: computer vision, machine learning,
-                3D graphics, robotics, or sensor fusion.
+                Experience analyzing data through querying database (e.g., SQL)
+                using spreadsheet software, and creating statistical models.
               </li>
-              <li>
-                Experience with one or more of the following: AR/VR, mobile, or consumer hardware.
-              </li>
-              <li>Experience working with cross-functional teams.</li>
             </ul>
           </div>
         </div>
 
         <div class="mt-2 text-center">
-          <router-link to="/jobs/results/1" class="text-brand-blue-1">Expand</router-link>
+          <router-link to="/jobs/results/1" class="text-brand-blue-1"
+            >Expand</router-link
+          >
         </div>
       </div>
     </router-link>
@@ -43,6 +47,6 @@
 
 <script>
 export default {
-  name: 'JobListing'
-}
+  name: "JobListing",
+};
 </script>

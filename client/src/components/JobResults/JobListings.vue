@@ -23,16 +23,9 @@ export default {
   },
 
   // mounted is a lifecycle hook that runs after the component is mounted
-  mounted() {
-    axios
-      .get('http://localhost:3000/jobs')
-      .then((response) => {
-        this.jobs = response.data
-        console.log(response)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+  async mounted() {
+    const response = await axios.get('http://localhost:3000/jobs')
+    this.jobs = response.data
   }
 }
 </script>

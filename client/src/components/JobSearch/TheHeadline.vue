@@ -5,7 +5,7 @@
       <br />
       for everyone
     </h1>
-    <h2 class="text-3xl font-light">Find your next job at Atlantis</h2>
+    <h2 class="text-3xl font-light">Find your next job at Atlantis Corp.</h2>
   </section>
 </template>
 
@@ -17,27 +17,26 @@ export default {
   data() {
     return {
       action: 'Build',
-      indexOf: null
+      interval: null
     }
   },
   computed: {
     actionClasses() {
       return {
-        [this.action.toLowerCase()]: true // [learn: true] or [build: true] or [teach: true]
+        [this.action.toLowerCase()]: true
       }
     }
   },
   created() {
     this.changeTitle()
   },
-  // lifecycle hook //
   beforeUnmount() {
     clearInterval(this.interval)
   },
   methods: {
     changeTitle() {
       this.interval = setInterval(() => {
-        const actions = ['Build', 'Learn', 'Teach', 'Grow']
+        const actions = ['Build', 'Create', 'Design', 'Code']
         this.action = nextElementInList(actions, this.action)
       }, 3000)
     }
@@ -47,15 +46,18 @@ export default {
 
 <style scoped>
 .build {
-  color: #f59e0b;
+  color: #1a73e8;
 }
-.learn {
-  color: #10b981;
+
+.create {
+  color: #34a853;
 }
-.teach {
-  color: #3b82f6;
+
+.design {
+  color: #f9ab00;
 }
-.grow {
-  color: #ef4444;
+
+.code {
+  color: #d93025;
 }
 </style>

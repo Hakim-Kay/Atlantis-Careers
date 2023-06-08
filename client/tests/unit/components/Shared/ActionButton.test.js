@@ -10,21 +10,23 @@ describe('ActionButton', () => {
         type: 'primary'
       }
     })
+
     const button = screen.getByRole('button', {
-      name: /Click me/i
+      name: /click me/i
     })
     expect(button).toBeInTheDocument()
   })
 
-  it('renders primary button', () => {
+  it('applies one of several styles to button', () => {
     render(ActionButton, {
       props: {
         text: 'Click me',
         type: 'primary'
       }
     })
+
     const button = screen.getByRole('button', {
-      name: /Click me/i
+      name: /click me/i
     })
     expect(button).toHaveClass('primary')
   })
